@@ -1,266 +1,422 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Proposal Request</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #ffe0ec, #fff4f9);
-      padding: 30px;
-      text-align: center;
-      overflow: hidden;
-    }
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Riyad &mdash; App Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A passionate experienced Mobile Application developer" />
 
-    .confession {
-      background-color: #fff;
-      border: 2px solid #ffb6c1;
-      padding: 30px;
-      border-radius: 16px;
-      max-width: 600px;
-      margin: auto;
-      box-shadow: 0 6px 18px rgba(255, 105, 180, 0.2);
-      position: relative;
-      z-index: 2;
-    }
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
 
-    h2 {
-      color: #d6336c;
-    }
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link rel="icon" href="images/profile.jpg" type="profile images">
 
-    p {
-      font-size: 18px;
-      color: #444;
-      line-height: 1.6;
-    }
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
 
-    .buttons {
-      margin-top: 30px;
-    }
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
 
-    button {
-      padding: 12px 28px;
-      font-size: 18px;
-      margin: 0 12px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
 
-    .accept {
-      background-color: #ff69b4;
-      color: white;
-    }
+    </head>
+    <body>
+        
+    <div class="fh5co-loader"></div>
+    
+    <div id="page"> 
+    <header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(images/cover_bg_3.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <div class="display-t js-fullheight">
+                        <div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
+                            <div class="profile-thumb" style="background: url(images/profile.jpg);"></div>
+                            <h1><span>Mohammad Riyad</span></h1>
+                            <h3><span>Mobile Apps Developer</span></h3>
+                            <p>
+                                <ul class="fh5co-social-icons">
+                                    <li><a href="https://x.com/kriyad09" target="_blank"><i class="icon-twitter2"></i></a></li>
+                                    <li><a href="https://www.facebook.com/riyd745" target="_blank"><i class="icon-facebook2"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/md-riyad-273863308" target="_blank"><i class="icon-linkedin2"></i></a></li>
+                                </ul>
+                            </p>
+                            <h3><span>Sroll down to see more</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    .accept:hover {
-      background-color: #e05599;
-    }
-
-    .reject {
-      background-color: #ff6f61;
-      color: white;
-    }
-
-    .reject:hover {
-      background-color: #d94c48;
-    }
-
-    /* Floating Hearts */
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Emoji_u2764.svg/32px-Emoji_u2764.svg.png') no-repeat center center/cover;
-      animation: float 6s linear infinite;
-      opacity: 0.6;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1.2);
-        opacity: 0;
-      }
-    }
-
-    /* Modals */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 99;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    .modal-content {
-      background: #fff;
-      padding: 40px;
-      border-radius: 20px;
-      max-width: 500px;
-      margin: 10% auto;
-      text-align: center;
-      position: relative;
-      animation: popup 0.5s ease;
-    }
-
-    @keyframes popup {
-      0% { transform: scale(0.5); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .modal h3 {
-      color: #d6336c;
-      font-size: 26px;
-      margin-bottom: 20px;
-    }
-
-    .modal p {
-      font-size: 18px;
-      color: #555;
-    }
-
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 24px;
-      cursor: pointer;
-      color: #888;
-    }
-
-    /* Rejection Animation */
-    .shake {
-      animation: shake 0.5s ease;
-    }
-
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-10px); }
-      50% { transform: translateX(10px); }
-      75% { transform: translateX(-10px); }
-      100% { transform: translateX(0); }
-    }
-
-    .broken-heart {
-      font-size: 48px;
-      animation: breakHeart 1s ease forwards;
-    }
-
-    @keyframes breakHeart {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(1.3) rotate(-15deg); opacity: 0.6; }
-    }
-  </style>
-</head>
-<body>
-
-<div class="confession" id="confessionBox">
-  <h2>💖 Assalamu Walaikum Dear Nighu! 💖<br>
-    A propose request is waiting for you 🏆🎉</h2>
-  <p>
-    <h2>My love❤️</h2> 
-    From the day you came into my life, everything changed... 🌸<br>
-    You bring peace to my soul, and a smile to my heart. 🌙✨<br>
-    I don't just want a relationship — I want forever with you. 💍💖<br>
-    <br>
-    Will you marry me and walk this beautiful journey of life together? 👫🌍💫
-  </p>
-
-  <div class="buttons">
-    <button class="accept" onclick="handleResponse('accept')">Accept</button>
-    <button class="reject" onclick="handleResponse('reject')">Reject</button>
-  </div>
-</div>
-
-<!-- Accept Modal -->
-<div class="modal" id="loveModal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal(event, 'loveModal')">&times;</span>
-    <h3>💞 Congratulations! I love you jaan 💞</h3>
-    <p>Thank you for accepting me into your heart.  
-    I promise to love, respect, and cherish you forever. 💑💫</p>
-    <br>
-<button class="accept" onclick="window.open('https://wa.me/+8801933385476?text=I%20love%20you%20too%20%E2%9D%A4%EF%B8%8F', '_blank')">Continue 💌</button>
-  </div>
-</div>
-
-<!-- Reject Modal -->
-<div class="modal" id="rejectModal">
-  <div class="modal-content" id="rejectContent">
-    <div class="broken-heart">😠</div>
-    <h3>Ore kutti kaner niche debo toke😠</h3>
-    <p>
-  Tui reject koros tor eto boro sahos😠, to ki hoice korle ami tore tor basa theke tule anbo kutti. 
-  Mritto chara tor theke dure jabo na ba keu alada korte parbe na amakre reject koros beyadop😠
-</p>
-<br>
-<button class="reject" onclick="closeModal(event, 'rejectModal')">Close</button>
-
-  </div>
-</div>
+    <div id="fh5co-about" class="animate-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>About Me</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <ul class="info">
+                        <li><span class="first-block">Full Name:</span><span class="second-block">Mohammad Riyad</span></li>
+                        <li><span class="first-block">Phone:</span><span class="second-block">+88018190-56590</span></li>
+                        <li><span class="first-block">Email:</span><span class="second-block">mohammadriyad9090@gmail.com</span></li>
+                        <li><span class="first-block">Address:</span><span class="second-block">Khalil chambar mor, Khulna-9100, Bangladesh</span></li>
+                    </ul>
+                </div>
+                <div class="col-md-1">
+            </div>
 
 
-<!-- Floating Hearts -->
-<script>
-  for (let i = 0; i < 25; i++) {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-    document.body.appendChild(heart);
-  }
+                <div class="col-md-6">
+                    <h2>Hello There!</h2>
+                    <p>I am Mohammad Riyad, an experienced app developer specializing in Flutter with over 2 years of hands-on experience. I have a passion for creating innovative and user-friendly mobile applications. My expertise spans from designing intuitive user interfaces to developing efficient, scalable code. Having worked on a variety of projects, I have honed my skills in cross-platform development, ensuring seamless performance across iOS and Android devices. Whether you need a new app built from scratch or improvements to an existing one, I am committed to delivering high-quality results tailored to your business needs.</p>
+                    
+            </div>
+        </div>
+    </div>
 
-  function handleResponse(choice) {
-    if (choice === 'accept') {
-      document.getElementById('loveModal').style.display = 'block';
-    } else {
-      const rejectModal = document.getElementById('rejectModal');
-      const rejectContent = document.getElementById('rejectContent');
+    <div id="fh5co-resume" class="fh5co-bg-color">
+        <div class="container">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>My Resume</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-md-offset-0">
+                    <ul class="timeline">
+                        <li class="timeline-heading text-center animate-box">
+                            <div><h3>Work Experience</h3></div>
+                        </li>
+                        <li class="animate-box timeline-unverted">
+                            <div class="timeline-badge"><i class="icon-suitcase"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h3 class="timeline-title">Lead App Developer</h3>
+                                    <span class="company">Thirtymins ltd. 2025 - Current</span>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>I began my journey with Thirtymins Limited as a part-time App Developer, where I was entrusted with developing and maintaining essential features for the company’s core mobile applications. Demonstrating a strong grasp of mobile app development best practices, rapid delivery cycles, and a collaborative mindset, I was promoted to a full-time Lead Application Developer. In this elevated role, I now oversee the technical direction of our app platforms, lead a team of developers, and play a key role in strategic planning and execution.
+                            </div>
+                        </li>
+                        <li class="timeline-inverted animate-box">
+                            <div class="timeline-badge"><i class="icon-suitcase"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h3 class="timeline-title">Freelance App Develper</h3>
+                                    <span class="company">Thirtymins ltd. 2024 - 2025</span>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>As a Part-time App Developer at Thirtymins Limited, I contributed to the design, development, and maintenance of mobile applications aligned with the company's goals. My responsibilities included implementing UI/UX features, optimizing app performance, debugging, and collaborating with cross-functional teams to deliver high-quality app experiences within tight timelines.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="animate-box timeline-unverted">
+                            <div class="timeline-badge"><i class="icon-suitcase"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h3 class="timeline-title">App Developer</h3>
+                                    <span class="company">Codemen Org. 2024 - 2025</span>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>After 2 years of dedicated work as a Junior Flutter Developer, I was promoted to a Mid-Level role, reflecting my growth in technical expertise, problem-solving, and project management. I continue to drive innovation and deliver high-quality mobile app solutions with a focus on user experience and performance optimization.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted animate-box">
+                            <div class="timeline-badge"><i class="icon-suitcase"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h3 class="timeline-title">Junior App Developer</h3>
+                                    <span class="company">Codemen Org. 2022 - 2024</span>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>I began my career as a Junior Flutter Developer, where I focused on learning and applying key development principles, writing clean code, and contributing to cross-platform mobile projects. This role laid the foundation for my growth in app development, allowing me to work on various projects and sharpen my skills in Flutter.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <br>
+                        <li class="timeline-heading text-center animate-box">
+                            <div><h3>Education</h3></div>
+                        </li>
+                        <li class="animate-box timeline-unverted">
+                            <div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h3 class="timeline-title">Higher Secondary Certificate</h3>
+                                    <span class="company">Govt M. M. city college, Khulna - 2024</span>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>Successfully passed Higher secondary school certificate with G.P.A 5.00 in business studies in the year of 2024.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted animate-box">
+                            <div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h3 class="timeline-title">Secondary School certificate</h3>
+                                    <span class="company">Secondary School - 2022</span>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>Successfully passed secondary school certificate with G.P.A 5.00 in business studies in the year of 2022.</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
-      // Prevent showing it multiple times
-      if (rejectModal.style.display !== 'block') {
-        rejectContent.classList.remove('shake'); // Reset animation class
-        void rejectContent.offsetWidth; // Force reflow for restart
-        rejectContent.classList.add('shake');
+    <div id="fh5co-features" class="animate-box">
+        <div class="container">
+            <div class="services-padding">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>My Services</h2>
+                </div>
+                <div class="text-center" style="width: 100%;">
+                    <div class="feature-left" style="width: 100%;">
+                        <span class="icon">
+                            <i class="icon-paintbrush"></i>
+                        </span>
+                        <div class="feature-copy">
+                            <h3>App Development</h3>
+                            <p>Design and develop any type of app with REST APIs using Flutter & Dart.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
-        rejectModal.style.display = 'block';
-      }
-    }
-  }
+    <div id="fh5co-skills" class="animate-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>Skills</h2>
+                </div>
+            </div>
+            <div class="row row-pb-md">
+                <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+                    <div class="chart" data-percent="60"><span><strong>Dart</strong>60%</span></div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+                    <div class="chart" data-percent="80"><span><strong>Flutter</strong>80%</span></div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+                    <div class="chart" data-percent="50"><span><strong>HTML</strong>50%</span></div>
+                </div>
 
-  function closeModal(event, modalId) {
-    event.stopPropagation(); // This prevents the event from bubbling up
-    const modal = document.getElementById(modalId);
-    modal.style.display = 'none';
+                <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+                    <div class="chart" data-percent="40"><span><strong>CSS</strong>40%</span></div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 text-center">
+                    <div class="chart" data-percent="50"><span><strong>MySQL</strong>50%</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    // Optional: Also remove animation class if it's the rejection modal
-    if (modalId === 'rejectModal') {
-      const rejectContent = document.getElementById('rejectContent');
-      rejectContent.classList.remove('shake');
-    }
-  }
+    <div id="fh5co-work" class="fh5co-bg-dark">
+        <div class="container">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>Work</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 text-center col-padding animate-box">
+                    <a href="#" class="work" style="background-image: url(images/portfolio-1.jpg);">
+                        <div class="desc">
+                            <h3>Project Name</h3>
+                            <span>Khulna Tution Point</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 text-center col-padding animate-box">
+                    <a href="#" class="work" style="background-image: url(images/portfolio-2.jpg);">
+                        <div class="desc">
+                            <h3>Project Name</h3>
+                            <span>Tree</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 text-center col-padding animate-box">
+                    <a href="#" class="work" style="background-image: url(images/portfolio-3.jpg);">
+                        <div class="desc">
+                            <h3>Project Name</h3>
+                            <span>Tic Tac Toe</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 text-center col-padding animate-box">
+                    <a href="#" class="work" style="background-image: url(images/portfolio-4.jpg);">
+                        <div class="desc">
+                            <h3>Project Name</h3>
+                            <span>Personal Expense</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 text-center col-padding animate-box">
+                    <a href="#" class="work" style="background-image: url(images/portfolio-5.jpg);">
+                        <div class="desc">
+                            <h3>Project Name</h3>
+                            <span>E-Note</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 text-center col-padding animate-box">
+                    <a href="#" class="work" style="background-image: url(images/portfolio-6.jpg);">
+                        <div class="desc">
+                            <h3>Project Name</h3>
+                            <span>4 in a row game</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 text-center col-padding animate-box">
+                    <a href="#" class="work" style="background-image: url(images/portfolio-7.jpg);">
+                        <div class="desc">
+                            <h3>Project Name</h3>
+                            <span>Calculator</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 text-center col-padding animate-box">
+                    <a href="#" class="work" style="background-image: url(images/portfolio-8.jpg);">
+                        <div class="desc">
+                            <h3>Project Name</h3>
+                            <span>BMI Calc</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  // Close modal when clicking outside the content
-  window.onclick = function(event) {
-    if (event.target.className === 'modal') {
-      event.target.style.display = 'none';
-      if (event.target.id === 'rejectModal') {
-        document.getElementById('rejectContent').classList.remove('shake');
-      }
-    }
-  }
-</script>
 
-</body>
+    <div id="fh5co-started" class="fh5co-bg-dark">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>Hire Me!</h2>
+                    <p>To design and develop creatie and innovative mobile apps then contact me.</p>
+                    <p><a href="https://docs.google.com/presentation/d/1-p4PJS3fTeecmL8PEBMWT6PQLbCNEXQbsD5e9jRqO78/edit?usp=sharing" target="_blank" class="btn btn-default btn-lg">Download CV</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fh5co-consult">
+        <div class="video fh5co-video" style="background-image: url(images/cover_bg_1.jpg);">
+            <div class="overlay"></div>
+        </div>
+        <div class="choose animate-box">
+            <h2>Contact</h2>
+            <form action="#">
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <input type="text" id="fname" class="form-control" placeholder="Your firstname">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <input type="text" id="lname" class="form-control" placeholder="Your lastname">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <input type="text" id="email" class="form-control" placeholder="Your email address">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mohammadriyad9090@gmail.com" target="_blank" class="email-button">Send Message</a>
+
+                </a>    
+                </div>
+
+
+            </form> 
+        </div>
+    </div>
+    </div>
+
+    <hr>
+    <div id="fh5co-footer">
+        <div class="container">
+            <div class="row" style="text-align: center;">
+                <div class="col-md-12">
+                    <p>&copy; 2025 All Rights Reserved Designed by <a href="https://riyad745.github.io/" target="_blank" style="color:blue">Mohammad Riyad</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <!-- Stellar Parallax -->
+    <script src="js/jquery.stellar.min.js"></script>
+    <!-- Easy PieChart -->
+    <script src="js/jquery.easypiechart.min.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+    <script src="js/google_map.js"></script>
+    
+    <!-- Main -->
+    <script src="js/main.js"></script>
+
+    </body>
 </html>
+
+
